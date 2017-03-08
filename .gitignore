@@ -1,0 +1,5 @@
+# Webstrom File
+.idea
+
+# Node Files
+/node_modules
