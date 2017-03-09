@@ -4,7 +4,9 @@
   "description": "Sample Code for Gemini Project",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "set NODE_ENV=production&webpack -p --progress --colors",
+    "start": "webpack-dev-server --progress --colors --content-base dist --inline --hot",
+    "test": "jest --watch"
   },
   "repository": {
     "type": "git",
