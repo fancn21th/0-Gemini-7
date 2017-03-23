@@ -1,9 +1,9 @@
 import React from 'react'
 import Sample from '../Sample'
 
-const App = ({ params }) => (
+const App = () => (
     <div>
-        <Sample filter={params.filter}/>
+        <Sample/>
     </div>
 )
 
