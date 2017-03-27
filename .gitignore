@@ -7,3 +7,6 @@
 # Dist Files
 /dist/client.min.js
 /dist/client.bundle.css
+
+# Debug Files
+/npm-debug.log

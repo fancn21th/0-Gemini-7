@@ -17,8 +17,8 @@ const Home = () => (
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li class="active"><NavLink to="/">首页</NavLink></li>
-                        <li><NavLink to="/">登录</NavLink></li>
-                        <li><NavLink to="/">注册</NavLink></li>
+                        <li><NavLink to="/login">登录</NavLink></li>
+                        <li><NavLink to="/login">注册</NavLink></li>
                     </ul>
                 </div>
             </div>
