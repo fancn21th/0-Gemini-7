@@ -1,0 +1,1 @@
+export const INVALIDATED_PHONE = '请填写有效的手机号码'

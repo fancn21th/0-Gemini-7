@@ -1,5 +1,6 @@
 import React from 'react'
 import { phoneValidator } from '../../utilities/validator'
+import { INVALIDATED_PHONE } from './constants'
 
 class Login extends React.Component {
     static propTypes = {
@@ -11,7 +12,7 @@ class Login extends React.Component {
     login = () => {
         if(!this.isPhoneValidated()){
             this.setState({
-                errorText: '请填写有效的邮箱'
+                errorText: INVALIDATED_PHONE
             })
         }else{
             this.setState({

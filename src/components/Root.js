@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react'
 import { Provider } from 'react-redux'
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom'
 import Home from './Home'
-import LoginContainer from '../container/LoginContainer'
+import LoginContainer from '../containers/LoginContainer'
 
 const Root = ({ store }) => (
     <Provider store={store}>
