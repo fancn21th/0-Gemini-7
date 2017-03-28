@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react'
 import { Provider } from 'react-redux'
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom'
 import Home from './Home'
-import Login from './Login'
+import LoginContainer from '../container/LoginContainer'
 
 const Root = ({ store }) => (
     <Provider store={store}>
@@ -10,7 +10,7 @@ const Root = ({ store }) => (
             <div>
                 <Switch>
                     <Route exact path="/" component={Home} />
-                    <Route path="/login" component={Login} />
+                    <Route path="/login" component={LoginContainer} />
                 </Switch>
             </div>
         </Router>
