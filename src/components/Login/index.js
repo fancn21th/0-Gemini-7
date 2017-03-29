@@ -1,6 +1,6 @@
 import React from 'react'
-import { phoneValidator } from '../../utilities/validator'
-import { INVALIDATED_PHONE } from './constants'
+import { mobileValidator } from '../../utilities/validator'
+import { INVALID_MOBILE } from './constants'
 
 class Login extends React.Component {
     static propTypes = {
@@ -10,24 +10,24 @@ class Login extends React.Component {
     state = {}
 
     login = () => {
-        if(!this.isPhoneValidated()){
+	    const mobile = this.mobileField.value
+	    const password = this.passwordField.value
+
+        if(!mobileValidator.validate(mobile)){
             this.setState({
-                errorText: INVALIDATED_PHONE
+                errorText: INVALID_MOBILE
             })
         }else{
             this.setState({
                 errorText: null
             })
+
+            this.props.login(mobile, password)
         }
     }
 
-    isPhoneValidated = () => {
-        const phone = this.phoneField.value
-        return phoneValidator.validate(phone)
-    }
-
     render() {
-        const phoneErrorField = this.state.errorText ? (
+        const mobileErrorField = this.state.errorText ? (
             <div> {this.state.errorText} </div>
             ) : null
 
@@ -36,17 +36,16 @@ class Login extends React.Component {
                 <div class="form-signin">
                     <h2 class="form-signin-heading">用户注册</h2>
 
-                    <label for="_inputPhone" class="sr-only">手机号</label>
-                    <input type="email"
-                           id="_inputPhone"
+                    <label for="_inputMobile" class="sr-only">手机号</label>
+                    <input id="_inputMobile"
                            class="form-control"
                            placeholder="手机号"
                            required
                            ref={(f) => {
-                               this.phoneField = f
+                               this.mobileField = f
                            }}
                     />
-                    {phoneErrorField}
+                    {mobileErrorField}
                     <label for="_inputPassword" class="sr-only">密码</label>
                     <input type="password"
                            id="_inputPassword"

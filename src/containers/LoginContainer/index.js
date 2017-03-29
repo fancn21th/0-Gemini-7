@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { sample } from '../../actions'
 import Login from '../../components/Login'
+import { login } from './actions'
 
 class LoginContainer extends React.Component {
 	render() {
@@ -13,13 +13,15 @@ class LoginContainer extends React.Component {
 	}
 }
 
-const mapStateToProps = (state, props) => ({})
+const mapStateToProps = (state, props) => ({
 
-const mapDispatchToProps = (dispatch) => ({
-	login: (phone, password) => dispatch()
 })
 
-Login.propTypes = {
+const mapDispatchToProps = (dispatch) => ({
+	login: (mobile, password, captcha) => dispatch(login(mobile, password, captcha))
+})
+
+LoginContainer.propTypes = {
 	login: React.PropTypes.func.isRequired
 }
 

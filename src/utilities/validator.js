@@ -1,3 +1,3 @@
-export const phoneValidator = {
-	validate : (phone) => /\d{11}/.test(phone)
+export const mobileValidator = {
+	validate : (mobile) => /\d{11}/.test(mobile)
 }
