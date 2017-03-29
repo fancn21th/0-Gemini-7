@@ -4,7 +4,7 @@ import { call, put } from 'redux-saga/effects'
 import { loginSucceed, loginFailed } from './actions'
 import fetch from 'isomorphic-fetch'
 
-export function loginToServer() {
+export const loginToServer = () => {
 	return fetch('http://localhost:10010/user', {
 		method: 'POST',
 		headers: {
