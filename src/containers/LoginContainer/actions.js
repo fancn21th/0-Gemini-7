@@ -5,8 +5,6 @@ import {
 } from './constants'
 
 export const login = (mobile, password, captcha) => {
-	console.log(mobile, password, captcha)
-
 	return {
 		type: LOGIN,
 		mobile,
@@ -15,12 +13,14 @@ export const login = (mobile, password, captcha) => {
 	}
 }
 
-export const loginSucceed = (user) => (
-	{
+export const loginSucceed = (user) => {
+	debugger
+
+	return{
 		type: LOGIN_FAILED,
 		user
 	}
-)
+}
 
 export const loginFailed = (message) => (
 	{

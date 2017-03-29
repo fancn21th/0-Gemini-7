@@ -1,6 +1,7 @@
+import 'babel-polyfill'
 import React from 'react'
 import { render } from 'react-dom'
-import Root from './components/Root'
+import Root from './containers/Root/Root'
 import configureStore from './stores/configureStore'
 
 import 'jquery-ui/themes/base/core.css'
@@ -8,9 +9,7 @@ import 'jquery-ui/themes/base/theme.css'
 import 'bootstrap/dist/css/bootstrap.css'
 import '../styles/index.css'
 
-const store = configureStore()
-
 render(
-    <Root store={store}/>,
+    <Root store={configureStore}/>,
     document.getElementById('root')
 )
