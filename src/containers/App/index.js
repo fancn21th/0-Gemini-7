@@ -1,16 +1,7 @@
 import React from 'react'
 
-export default class App extends React.Component {
+const App = (props) => (
+    <div>{props.children}</div>
+)
 
-  static propTypes = {
-    children: React.PropTypes.node,
-  };
-
-  render() {
-    return (
-      <div>
-        {React.Children.toArray(this.props.children)}
-      </div>
-    )
-  }
-}
+export default App

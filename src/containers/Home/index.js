@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router'
 
-const Home = () => (
+const Home = (props) => (
     <div class="container">
         <nav class="navbar navbar-default">
             <div class="container-fluid">
@@ -18,7 +18,7 @@ const Home = () => (
                     <ul class="nav navbar-nav">
                         <li class="active"><Link to="/">首页</Link></li>
                         <li><Link to="/login">登录</Link></li>
-                        <li><Link to="/login">注册</Link></li>
+                        <li><Link to="/about">注册</Link></li>
                     </ul>
                 </div>
             </div>

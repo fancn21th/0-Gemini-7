@@ -2,10 +2,11 @@ import 'babel-polyfill'
 import React from 'react'
 import { render } from 'react-dom'
 import { Provider } from 'react-redux'
-import { Router, Route, browserHistory} from 'react-router'
+import { Router, Route, browserHistory, IndexRoute } from 'react-router'
 import { syncHistoryWithStore } from 'react-router-redux'
 import configureStore from './stores/configureStore'
 
+import App from './containers/App'
 import Home from './containers/Home'
 import LoginContainer from './containers/LoginContainer'
 
@@ -15,16 +16,16 @@ import 'bootstrap/dist/css/bootstrap.css'
 import '../styles/index.css'
 
 const initialState = {}
-
 const store = configureStore(initialState, browserHistory)
-
 const history = syncHistoryWithStore(browserHistory, store)
 
 render(
 	<Provider store={ store }>
 		<Router histroy={ history }>
-			<Route path="/" component={Home} />
-			<Route path="/login" component={LoginContainer} />
+			<Route path="/" component={App}>
+				<IndexRoute component={Home} />
+				<Route path="login" component={LoginContainer} />
+			</Route>
 		</Router>
 	</Provider>,
     document.getElementById('root')
