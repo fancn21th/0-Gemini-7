@@ -19,12 +19,21 @@ const initialState = {}
 const store = configureStore(initialState, browserHistory)
 const history = syncHistoryWithStore(browserHistory, store)
 
+history.listen( location => {
+	console.log(location)
+})
+
+const About = () => (
+	<div>About</div>
+)
+
 render(
 	<Provider store={ store }>
 		<Router histroy={ history }>
 			<Route path="/" component={App}>
 				<IndexRoute component={Home} />
 				<Route path="login" component={LoginContainer} />
+				<Route path="about" component={About} />
 			</Route>
 		</Router>
 	</Provider>,

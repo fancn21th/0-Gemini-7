@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router'
 
-const Home = (props) => (
+const Home = () => (
     <div class="container">
         <nav class="navbar navbar-default">
             <div class="container-fluid">
