@@ -1,20 +1,34 @@
-import { createStore, applyMiddleware } from 'redux'
+import { createStore, applyMiddleware, combineReducers } from 'redux'
 import createSagaMiddleware from 'redux-saga'
-import rootReducer from '../reducers'
+import reducers from '../reducers'
 import saga from '../containers/LoginContainer/sagas'
-
-const sagaMiddleware = createSagaMiddleware()
-
-const middleware = applyMiddleware(sagaMiddleware)
+import { routerMiddleware, routerReducer } from 'react-router-redux'
 
 /* eslint-disable no-underscore-dangle */
-const configureStore = createStore(
-	rootReducer,
-	window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
-	middleware
-)
-/* eslint-enable */
+const configureStore = ( browserHistory ) => {
+	const sagaMiddleware = createSagaMiddleware()
+	const _routerMiddleware = routerMiddleware(browserHistory)
 
-sagaMiddleware.run(saga)
+	const middlewares = [
+		sagaMiddleware,
+		_routerMiddleware,
+	]
+
+	const middleware = applyMiddleware(...middlewares)
+
+	const store = createStore(
+		combineReducers({
+			...reducers,
+			routing: routerReducer
+		}),
+		window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+		middleware
+	)
+
+	sagaMiddleware.run(saga)
+
+	return store
+}
+/* eslint-enable */
 
 export default configureStore

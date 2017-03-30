@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { Link } from 'react-router'
 
 const Home = () => (
     <div class="container">
@@ -16,9 +16,9 @@ const Home = () => (
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li class="active"><NavLink to="/">首页</NavLink></li>
-                        <li><NavLink to="/login">登录</NavLink></li>
-                        <li><NavLink to="/login">注册</NavLink></li>
+                        <li class="active"><Link to="/">首页</Link></li>
+                        <li><Link to="/login">登录</Link></li>
+                        <li><Link to="/login">注册</Link></li>
                     </ul>
                 </div>
             </div>
@@ -27,7 +27,7 @@ const Home = () => (
         <div class="jumbotron">
             <h1>爱工作欢迎您！</h1>
             <p>
-                <NavLink to="/" class="btn btn-lg btn-primary">探索&raquo;</NavLink>
+                <Link to="/" class="btn btn-lg btn-primary">探索&raquo;</Link>
             </p>
         </div>
 

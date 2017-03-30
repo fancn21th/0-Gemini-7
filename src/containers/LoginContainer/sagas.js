@@ -1,6 +1,7 @@
 import { LOGIN } from './constants'
 import { takeLatest } from 'redux-saga'
 import { call, put } from 'redux-saga/effects'
+import { push } from 'react-router-redux'
 import { loginSucceed, loginFailed } from './actions'
 import fetch from 'isomorphic-fetch'
 
@@ -17,10 +18,12 @@ export const loginToServer = () => {
 
 function* login() {
 	try {
-		const user = yield call(loginToServer)
-		yield put(loginSucceed(user))
+		// const user = yield call(loginToServer)
+		// yield put(loginSucceed(user))
+		yield put(push('/'))
 	} catch (e) {
-		yield put(loginFailed(e.message))
+		// yield put(loginFailed(e.message))
+		yield put(push('/'))
 	}
 }
 
