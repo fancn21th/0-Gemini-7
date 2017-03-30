@@ -23,6 +23,7 @@ function* login() {
 		yield put(loginFailed(e.message))
 	}
 }
+
 export function* loginSaga() {
 	yield takeLatest(LOGIN, login)
 }

@@ -14,8 +14,6 @@ export const login = (mobile, password, captcha) => {
 }
 
 export const loginSucceed = (user) => {
-	debugger
-
 	return{
 		type: LOGIN_FAILED,
 		user

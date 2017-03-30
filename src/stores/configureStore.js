@@ -7,7 +7,13 @@ const sagaMiddleware = createSagaMiddleware()
 
 const middleware = applyMiddleware(sagaMiddleware)
 
-const configureStore = createStore(rootReducer, middleware)
+/* eslint-disable no-underscore-dangle */
+const configureStore = createStore(
+	rootReducer,
+	window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+	middleware
+)
+/* eslint-enable */
 
 sagaMiddleware.run(saga)
 

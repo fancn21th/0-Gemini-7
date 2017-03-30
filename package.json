@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "set NODE_ENV=production&webpack -p --progress --colors",
-    "start": "webpack-dev-server --progress --colors --content-base dist --inline --hot",
+    "start": "webpack-dev-server --progress --colors --content-base dist --inline --hot --open",
     "test": "jest --watch"
   },
   "repository": {
