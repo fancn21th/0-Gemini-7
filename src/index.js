@@ -14,7 +14,9 @@ import 'jquery-ui/themes/base/theme.css'
 import 'bootstrap/dist/css/bootstrap.css'
 import '../styles/index.css'
 
-const store = configureStore(browserHistory)
+const initialState = {}
+
+const store = configureStore(initialState, browserHistory)
 
 const history = syncHistoryWithStore(browserHistory, store)
 

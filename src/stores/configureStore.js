@@ -1,28 +1,30 @@
-import { createStore, applyMiddleware, combineReducers } from 'redux'
+import { createStore, applyMiddleware, combineReducers, compose } from 'redux'
 import createSagaMiddleware from 'redux-saga'
 import reducers from '../reducers'
 import saga from '../containers/LoginContainer/sagas'
 import { routerMiddleware, routerReducer } from 'react-router-redux'
 
+const sagaMiddleware = createSagaMiddleware()
+
 /* eslint-disable no-underscore-dangle */
-const configureStore = ( browserHistory ) => {
-	const sagaMiddleware = createSagaMiddleware()
-	const _routerMiddleware = routerMiddleware(browserHistory)
+const configureStore = ( initialState = {}, history ) => {
 
 	const middlewares = [
 		sagaMiddleware,
-		_routerMiddleware,
+		routerMiddleware(history),
 	]
 
-	const middleware = applyMiddleware(...middlewares)
+	const enhancers = [
+		applyMiddleware(...middlewares),
+	]
 
 	const store = createStore(
 		combineReducers({
 			...reducers,
 			routing: routerReducer
 		}),
-		window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
-		middleware
+		initialState,
+		compose(...enhancers)
 	)
 
 	sagaMiddleware.run(saga)
