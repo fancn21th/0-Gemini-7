@@ -7,7 +7,7 @@
     "build": "set NODE_ENV=production&webpack -p --progress --colors",
     "start": "webpack-dev-server --progress --colors --content-base dist --inline --hot",
     "test": "jest --watch",
-    "lint": "eslint ./src&exit 0",
+    "lint": "eslint ./src",
     "lint:fix": "eslint --fix ./src&exit 0"
   },
   "repository": {
