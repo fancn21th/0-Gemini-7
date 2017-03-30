@@ -4,10 +4,9 @@ import reducers from '../reducers'
 import saga from '../containers/LoginContainer/sagas'
 import { routerMiddleware, routerReducer } from 'react-router-redux'
 
-const sagaMiddleware = createSagaMiddleware()
-
 /* eslint-disable no-underscore-dangle */
 const configureStore = ( initialState = {}, history ) => {
+	const sagaMiddleware = createSagaMiddleware()
 
 	const middlewares = [
 		sagaMiddleware,
